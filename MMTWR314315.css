@@ -1,0 +1,84 @@
+/* MEDIA QUERY */
+
+/* With list */
+ul{
+    /* delete bullet points */
+    list-style: none;
+    /* no background needed, otherwise want to check the ul padding */
+    /* background: red; */
+    /* to make the icon right aligned */
+    text-align: right;
+    /* no need padding at all otherwise too big */
+    padding: 0;
+}
+li{
+    /* make it in the same line */
+    display: inline-block;
+    /* default font-size is also 16px in CSS */
+    /* using em for responsive web, so in mobile the text will be smaller */
+    font-size: 1.2em;
+    padding: 20px;
+    /* make it neat */
+    text-align: center;
+    /* background: rgb(21, 114, 175); */ /* no need because all can be  backgrounded */
+}
+/* remember class with space can be separately defined */
+/* float forces icon text separately from ul list definition, to make it left aligned */
+.icon{
+    float: left;
+}
+/* to color both desktop and mobile icon */
+.icon_color{
+    color:blueviolet;
+}
+.icon > h2{
+    /* need this margin because after float the heading will have its own margin */
+    /* so by setting margin = 0, the h2 text will be aligned with ul again */
+    margin: 0;
+}
+.button_green{
+    /* THE COMBINATION OF background and color */
+    /* for background color */
+    background: lightseagreen;
+    /* for text color */
+    color:white;
+}
+/* make the pic (img) has optimal width in respect to the screen (desktop or mobile) */
+img{
+    /* it is recommended to use always percentage (%), 100% makes no need of horizontal scroll */
+    width:100%;
+    /* comment max-width below to set the maximum screen width of the pic1 for both desktop & mobile */
+    max-width: 627px; /* if this active, mobile full, desktop smaller */
+}
+/* pic1 is landscape */
+.pic1{
+    text-align: center;
+}
+/* in desktop mode, deactive mobile icon using display none */
+.mobile{
+    display: none;
+}
+/* in mobile mode, the mobile icon just a letter with block background opposite to icon_color for desktop */
+/* when calling a 2-word class together in CSS, just use format .[Word1].[Word2]{} */
+.icon.mobile{
+    background: blueviolet;
+    color: white;
+    /* to make logo P smaller in mobile */
+    font-size: 12px;
+}
+/* calling media query */
+/* after checking with "inspect", the Home - Getting Started buttons make the second row when screen width < 627px */
+/* when screen width < 627px (in other words in mobile mode case...) */
+@media only screen and (max-width: 627px){
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+        /* here Patrick, Home, Contact Us, Sign In will disappear because of desktop class */
+    }
+    /* make get started smaller in mobile */
+    html{
+        font-size: 12px;
+    }
+}
